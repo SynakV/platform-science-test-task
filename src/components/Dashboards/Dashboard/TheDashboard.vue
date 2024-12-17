@@ -3,7 +3,7 @@
   import TheChart from '@/components/Dashboards/Dashboard/TheChart.vue';
   import TheHeader from '@/components/Dashboards/Dashboard/TheHeader.vue';
   import TheTable from '@/components/Dashboards/Dashboard/TheTable.vue';
-  import type { DashboardTableType } from '@/components/Dashboards/Dashboard/types';
+import type { DashboardTableType } from '@/utils/types/dashboard.type';
 
   defineProps<{
     title: string;

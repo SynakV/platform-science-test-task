@@ -1,14 +1,14 @@
 <script setup lang="ts">
+  import { inject } from 'vue';
+
   defineProps<{
     title: string;
   }>();
 
+  const triggerAlert = inject<(message: string) => void>('alertProvider');
+
   const onclick = () => {
-    window.dispatchEvent(
-      new CustomEvent('trigger-alert', {
-        detail: 'View button clicked'
-      })
-    );
+    triggerAlert?.('View button clicked');
   }
 </script>
 

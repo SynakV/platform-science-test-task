@@ -1,17 +1,18 @@
 <script setup lang="ts">
   import DataProvider from '@/providers/DataProvider.vue';
   import TheHeader from '@/components/Header/TheHeader.vue';
-  import DashboardItems from '@/components/Dashboards/DashboardItems.vue';
-  import AlertWrapper from '@/components/Alert/AlertWrapper.vue';
+  import TheDashboards from '@/components/Dashboards/TheDashboards.vue';
+  import AlertProvider from '@/providers/AlertProvider.vue';
 </script>
 
 <template>
   <main class="container">
-    <DataProvider>
-      <TheHeader />
-      <DashboardItems />
-    </DataProvider>
-    <AlertWrapper />
+    <AlertProvider>
+      <DataProvider>
+        <TheHeader />
+        <TheDashboards />
+      </DataProvider>
+    </AlertProvider>
   </main>
 </template>
 

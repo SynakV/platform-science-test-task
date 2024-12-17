@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref, provide, onMounted } from 'vue';
-  import type { FleetType } from '@/utils/types';
+  import type { FleetType } from '@/utils/types/fleet.type';
 
   const state = ref<FleetType | null>(null);
 

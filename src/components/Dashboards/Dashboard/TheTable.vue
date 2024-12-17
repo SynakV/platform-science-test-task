@@ -1,17 +1,16 @@
 <script setup lang="ts">
+  import { inject } from 'vue';
   import { dataColors } from '@/utils/constants';
-  import type { DashboardTableType } from '@/components/Dashboards/Dashboard/types';
+  import type { DashboardTableType } from '@/utils/types/dashboard.type';
 
   defineProps<{
     table: DashboardTableType;
   }>();
 
+  const triggerAlert = inject<(message: string) => void>('alertProvider');
+
   const onclick = () => {
-    window.dispatchEvent(
-      new CustomEvent('trigger-alert', {
-        detail: 'Click'
-      })
-    );
+    triggerAlert?.('Click');
   }
 </script>
 

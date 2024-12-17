@@ -2,14 +2,14 @@
   import { inject, ref, watch, type Ref } from 'vue';
   import TheCard from '@/components/Card/TheCard.vue';
   import TotalItem from '@/components/Header/TotalItem.vue';
-  import type { FleetType } from '@/utils/types';
+  import type { FleetType } from '@/utils/types/fleet.type';
 
   const state = inject<Ref<FleetType | null>>('dataProvider');
 
   const totals = ref<FleetType['totals']>({});
 
   watch(
-    () => state!.value,
+    () => state?.value,
     (newData) => {
       if (newData) {
         totals.value = newData.totals

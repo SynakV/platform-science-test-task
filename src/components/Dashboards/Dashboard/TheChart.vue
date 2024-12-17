@@ -6,31 +6,17 @@
   import TheTooltip from '@/components/Tooltip/TheTooltip.vue';
   import { Chart as ChartJS, ArcElement, Tooltip, Legend, type ChartData } from 'chart.js';
 
+  ChartJS.register(ArcElement, Tooltip, Legend);
+
   const { chart } = defineProps<{
     tooltip: string;
     chart: number[];
     totals: number;
   }>();
 
-  watch(
-    () => chart,
-    (newData) => {
-      data.value = {
-        datasets: [
-          {
-            data: newData,
-            backgroundColor: dataColors.map(color => color.background),
-          }
-        ]
-      }
-    }
-  );
-
-  ChartJS.register(ArcElement, Tooltip, Legend)
-
   const data = ref<ChartData<"doughnut">>({
     datasets: []
-  })
+  });
 
   const options = {
     responsive: true,
@@ -47,7 +33,21 @@
         displayColors: false,
       },
     }
-  }
+  };
+
+  watch(
+    () => chart,
+    (newData) => {
+      data.value = {
+        datasets: [
+          {
+            data: newData,
+            backgroundColor: dataColors.map(color => color.background),
+          }
+        ]
+      }
+    }
+  );
 </script>
 
 <template>

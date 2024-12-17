@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { inject, ref, watch, type Ref } from 'vue';
-  import type { FleetItemDataType, FleetItemType, FleetType } from '@/utils/types';
-  import type { DashboardTableType } from '@/components/Dashboards/Dashboard/types';
+  import type { FleetItemDataType, FleetItemType, FleetType } from '@/utils/types/fleet.type';
   import TheDashboard from '@/components/Dashboards/Dashboard/TheDashboard.vue';
+  import type { DashboardTableType } from '@/utils/types/dashboard.type';
 
   const state = inject<Ref<FleetType | null>>('dataProvider');
 
@@ -20,7 +20,7 @@
   const prognosticsTotals = ref(0);
 
   watch(
-    () => state!.value,
+    () => state?.value,
     (newData) => {
       if (newData) {
         diagnosticsChart.value = getChartData(newData.diagnostics.severity);
