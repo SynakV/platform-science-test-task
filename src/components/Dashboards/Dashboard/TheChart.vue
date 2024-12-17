@@ -21,7 +21,7 @@
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    cutout: 100,
+    cutout: 75,
     elements: {
       arc: {
         borderWidth: 0,
@@ -69,6 +69,7 @@
 
 <style scoped>
   .chart {
+    height: 220px;
     position: relative;
   }
 

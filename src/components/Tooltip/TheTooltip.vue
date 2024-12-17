@@ -53,7 +53,7 @@
     box-shadow: 0 0 2px 0 var(--color-primary-300);
     left: calc(100% + 10px);
     width: 200px;
-    bottom: 70px;
+    bottom: 50px;
   }
 
   .tooltip__banner::before {
